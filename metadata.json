@@ -1,0 +1,6 @@
+{
+  "name": "AMORA",
+  "description": "Gökyüzünde geçen piksel sanatlı, Undertale esintili 3 boss savaşlı ve bulmacalı rol yapma oyunu.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

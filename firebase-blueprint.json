@@ -1,0 +1,41 @@
+{
+  "entities": {
+    "PlayerProgress": {
+      "title": "PlayerProgress",
+      "description": "Persisted unlocked endings and player name for AMORA across sessions.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "Firebase Auth UID of the player.",
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "playerName": {
+          "type": "string",
+          "description": "Hero name chosen by the player.",
+          "minLength": 1,
+          "maxLength": 24
+        },
+        "unlockedEndings": {
+          "type": "array",
+          "description": "Unique unlocked ending identifiers (ALL_FIGHT, ALL_SPARE, MIXED, SECRET_PIRATE)."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of the last progress update."
+        }
+      },
+      "required": ["uid", "playerName", "unlockedEndings", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/userProgress/{userId}": {
+      "schema": {
+        "$ref": "#/entities/PlayerProgress"
+      },
+      "description": "Stores each player's unlocked AMORA endings so progress persists across sessions."
+    }
+  }
+}
